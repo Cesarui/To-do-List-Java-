@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package to.pkgdo.list;
 
-/**
- *
- * @author cpime
- */
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class ToDoList {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        // - To-Do List
+        Scanner scanner = new Scanner(System.in);
+        
+        ArrayList<String> tasks = new ArrayList<>();
+        
+        boolean stay = false;
+        
+        while (stay){
+            
+            System.out.println("What would you like to do today? \n1. ");
+            
+            
+        }
+        
+        
+        
+        
     }
     
 }
