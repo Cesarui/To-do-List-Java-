@@ -12,12 +12,16 @@ public class ToDoList {
         
         ArrayList<String> tasks = new ArrayList<>();
         
-        boolean stay = false;
+        boolean stay = true;
+        
+        System.out.println("What would you like to do today? "
+                    + "\n1. Add a task! "
+                    + "\n2. View Tasks "
+                    + "\n3. Exit ");
         
         while (stay){
             
-            System.out.println("What would you like to do today? \n1. ");
-            
+            //switch ()
             
         }
         
