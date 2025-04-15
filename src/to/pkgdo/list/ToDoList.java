@@ -16,20 +16,24 @@ public class ToDoList {
         
         int option = 0;
         
-        System.out.println("What would you like to do? "
-                    + "\n1. Add a task! "
-                    + "\n2. View Tasks "
-                    + "\n3. Exit ");
+        System.out.println("""
+                           Welcome to your To-Do List!
+                           
+                           Type "1" to add a task!
+                           
+                           """);
         
         int firstInput = 0;
         
         while (stay){
             
             if(firstInput > 0) {
-                 System.out.println("What would you like to do now? "
-                    + "\n1. Add a task! "
-                    + "\n2. View Tasks "
-                    + "\n3. Exit ");
+                 System.out.println("""
+                                    What would you like to do now? 
+                                    1. Add a task! 
+                                    2. View Tasks 
+                                    3. Delete a Task
+                                    4. Exit """);
             }
             
             boolean validOption = false;
@@ -37,7 +41,7 @@ public class ToDoList {
             while(!validOption){
                 option = scanner.nextInt();
                 scanner.nextLine();
-                if (option > 0 && option < 4) {
+                if (option > 0 && option < 5) {
                     validOption = true;
                 }
                 else{
@@ -46,34 +50,42 @@ public class ToDoList {
             }
             
             switch(option){
-                case 1:
+                case 1 -> {
                     System.out.println("What is the name of your task?: (Type done"
-                    + " if you dont want to add more tasks)");
+                            + " if you dont want to add more tasks)");
                     AddTask(scanner, tasks);
-                    break;
-                case 2:
-                System.out.println("-----------------------------------");
-                System.out.println("Here are your tasks: ");
-                // START > CHECK > STEP
-                for (int i = 0; i < tasks.size(); i++){
-                    System.out.println(i + 1 + ". " + tasks.get(i)); 
-                    // tasks.get, gets the String located in its index number
-                    // Which means, 0 is the first task and so on...
                 }
-                System.out.println("-----------------------------------");
-                break;
-                case 3:
-                System.out.println("Goodbyeee!");
-                stay = false;
-                break;
+                case 2 -> {
+                    if (tasks.isEmpty()){
+                        System.out.println("You have no tasks!");
+                    }
+                    else {
+                        System.out.println("-----------------------------------");
+                        System.out.println("Here are your tasks: ");
+                        // START > CHECK > STEP
+                        for (int i = 0; i < tasks.size(); i++){
+                            System.out.println(i + 1 + ". " + tasks.get(i));
+                            // tasks.get, gets the String located in its index number
+                            // Which means, 0 is the first task and so on...
+                        }
+                        System.out.println("-----------------------------------");
+                    }
+                }
+                case 3 -> { // Option to remove a task!
+                    System.out.println("Which task would you like to remove?: (Input it's number!)");
+                    int taskToDelete = scanner.nextInt();
+                    taskToDelete = taskToDelete - 1;
+                    System.out.println(tasks.get(taskToDelete) + " has been removed!");  
+                    tasks.remove(taskToDelete);
+                }
+                case 4 -> {
+                    System.out.println("Goodbyeee!");
+                    stay = false;
+                }
             }
             
             firstInput++;
         }
-        
-        
-        
-        
     }
     
     public static void AddTask(Scanner scanner, ArrayList<String> tasks){
@@ -88,5 +100,4 @@ public class ToDoList {
             }
         }
     }
-    
 }
