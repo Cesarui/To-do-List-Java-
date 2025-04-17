@@ -2,6 +2,8 @@ package to.pkgdo.list;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collection;
+import java.util.Collections;
 
 public class ToDoList {
 
@@ -24,7 +26,6 @@ public class ToDoList {
                            """);
         
         int firstInput = 0;
-        
         while (stay){
             
             if(firstInput > 0) {
@@ -33,7 +34,8 @@ public class ToDoList {
                                     1. Add a task! 
                                     2. View Tasks 
                                     3. Delete a Task
-                                    4. Exit """);
+                                    4. Sort Tasks
+                                    5. Exit """);
             }
             
             // Checks if user is inputing a valid number/option
@@ -61,6 +63,18 @@ public class ToDoList {
                     DeleteTask(scanner, tasks);
                 }
                 case 4 -> {
+                    Collections.sort(tasks);
+                    System.out.println("-----------------------------------");
+                    System.out.println("Here are your tasks: ");
+                        // START > CHECK > STEP
+                        for (int i = 0; i < tasks.size(); i++){
+                            System.out.println(i + 1 + ". " + tasks.get(i));
+                            // tasks.get, gets the String located in its index number
+                            // Which means, 0 is the first task and so on...
+                        }
+                    System.out.println("-----------------------------------");
+                }
+                case 5 -> {
                     System.out.println("Goodbyeee!");
                     stay = false;
                 }
