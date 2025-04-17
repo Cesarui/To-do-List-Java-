@@ -73,10 +73,7 @@ public class ToDoList {
                 }
                 case 3 -> { // Option to remove a task!
                     System.out.println("Which task would you like to remove?: (Input it's number!)");
-                    int taskToDelete = scanner.nextInt();
-                    taskToDelete = taskToDelete - 1;
-                    System.out.println(tasks.get(taskToDelete) + " has been removed!");  
-                    tasks.remove(taskToDelete);
+                    DeleteTask(scanner, tasks);
                 }
                 case 4 -> {
                     System.out.println("Goodbyeee!");
@@ -99,5 +96,11 @@ public class ToDoList {
                 tasks.add(task);
             }
         }
+    }
+    public static void DeleteTask(Scanner scanner, ArrayList<String> tasks){
+        int taskToDelete = scanner.nextInt();
+        taskToDelete = taskToDelete - 1;
+        System.out.println(tasks.get(taskToDelete) + " has been removed!");  
+        tasks.remove(taskToDelete);
     }
 }
