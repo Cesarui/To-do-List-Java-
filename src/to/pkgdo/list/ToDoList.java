@@ -36,6 +36,7 @@ public class ToDoList {
                                     4. Exit """);
             }
             
+            // Checks if user is inputing a valid number/option
             boolean validOption = false;
             
             while(!validOption){
@@ -51,28 +52,12 @@ public class ToDoList {
             
             switch(option){
                 case 1 -> {
-                    System.out.println("What is the name of your task?: (Type done"
-                            + " if you dont want to add more tasks)");
                     AddTask(scanner, tasks);
                 }
                 case 2 -> {
-                    if (tasks.isEmpty()){
-                        System.out.println("You have no tasks!");
-                    }
-                    else {
-                        System.out.println("-----------------------------------");
-                        System.out.println("Here are your tasks: ");
-                        // START > CHECK > STEP
-                        for (int i = 0; i < tasks.size(); i++){
-                            System.out.println(i + 1 + ". " + tasks.get(i));
-                            // tasks.get, gets the String located in its index number
-                            // Which means, 0 is the first task and so on...
-                        }
-                        System.out.println("-----------------------------------");
-                    }
+                    DisplayTasks(tasks);
                 }
                 case 3 -> { // Option to remove a task!
-                    System.out.println("Which task would you like to remove?: (Input it's number!)");
                     DeleteTask(scanner, tasks);
                 }
                 case 4 -> {
@@ -86,6 +71,8 @@ public class ToDoList {
     }
     
     public static void AddTask(Scanner scanner, ArrayList<String> tasks){
+        System.out.println("What is the name of your task?: (Type done"
+                            + " if you dont want to add more tasks)");
         boolean done = false;
         while (!done){
             String task = scanner.nextLine();
@@ -98,9 +85,27 @@ public class ToDoList {
         }
     }
     public static void DeleteTask(Scanner scanner, ArrayList<String> tasks){
+        System.out.println("Which task would you like to remove?: (Input it's number!)");
         int taskToDelete = scanner.nextInt();
         taskToDelete = taskToDelete - 1;
         System.out.println(tasks.get(taskToDelete) + " has been removed!");  
         tasks.remove(taskToDelete);
+    }
+    
+    public static void DisplayTasks(ArrayList<String> tasks){
+        if (tasks.isEmpty()){
+                        System.out.println("You have no tasks!");
+                    }
+                    else {
+                        System.out.println("-----------------------------------");
+                        System.out.println("Here are your tasks: ");
+                        // START > CHECK > STEP
+                        for (int i = 0; i < tasks.size(); i++){
+                            System.out.println(i + 1 + ". " + tasks.get(i));
+                            // tasks.get, gets the String located in its index number
+                            // Which means, 0 is the first task and so on...
+                        }
+                        System.out.println("-----------------------------------");
+                    }
     }
 }
