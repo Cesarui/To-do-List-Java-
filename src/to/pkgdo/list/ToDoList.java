@@ -64,15 +64,7 @@ public class ToDoList {
                 }
                 case 4 -> {
                     Collections.sort(tasks);
-                    System.out.println("-----------------------------------");
-                    System.out.println("Here are your tasks: ");
-                        // START > CHECK > STEP
-                        for (int i = 0; i < tasks.size(); i++){
-                            System.out.println(i + 1 + ". " + tasks.get(i));
-                            // tasks.get, gets the String located in its index number
-                            // Which means, 0 is the first task and so on...
-                        }
-                    System.out.println("-----------------------------------");
+                    DisplaySortedTasks(tasks);
                 }
                 case 5 -> {
                     System.out.println("Goodbyeee!");
@@ -113,6 +105,22 @@ public class ToDoList {
                     else {
                         System.out.println("-----------------------------------");
                         System.out.println("Here are your tasks: ");
+                        // START > CHECK > STEP
+                        for (int i = 0; i < tasks.size(); i++){
+                            System.out.println(i + 1 + ". " + tasks.get(i));
+                            // tasks.get, gets the String located in its index number
+                            // Which means, 0 is the first task and so on...
+                        }
+                        System.out.println("-----------------------------------");
+                    }
+    }
+    public static void DisplaySortedTasks(ArrayList<String> tasks){
+        if (tasks.isEmpty()){
+            System.out.println("You have no tasks!");
+                    }
+                    else {
+                        System.out.println("-----------------------------------");
+                        System.out.println("Here are your sorted tasks A-Z: ");
                         // START > CHECK > STEP
                         for (int i = 0; i < tasks.size(); i++){
                             System.out.println(i + 1 + ". " + tasks.get(i));
