@@ -2,7 +2,6 @@ package to.pkgdo.list;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Collection;
 import java.util.Collections;
 
 public class ToDoList {
@@ -17,6 +16,8 @@ public class ToDoList {
         boolean stay = true;
         
         int option = 0;
+        
+        int timesPressed = 0;
         
         System.out.println("""
                            Welcome to your To-Do List!
@@ -63,8 +64,24 @@ public class ToDoList {
                     DeleteTask(scanner, tasks);
                 }
                 case 4 -> {
-                    Collections.sort(tasks);
-                    DisplaySortedTasks(tasks);
+                    timesPressed++;
+                    
+                    if(timesPressed % 2 == 0){
+                        Collections.sort(tasks);
+                        DisplaySortedTasks(tasks);
+                    }
+                    else{
+                        tasks.sort((word1,word2)-> word2.compareTo(word1));
+                        System.out.println("-----------------------------------");
+                        System.out.println("Here are your sorted tasks Z-A: ");
+                        // START > CHECK > STEP
+                        for (int i = 0; i < tasks.size(); i++){
+                            System.out.println(i + 1 + ". " + tasks.get(i));
+                            // tasks.get, gets the String located in its index number
+                            // Which means, 0 is the first task and so on...
+                        }
+                        System.out.println("-----------------------------------");
+                    }
                 }
                 case 5 -> {
                     System.out.println("Goodbyeee!");
@@ -103,6 +120,7 @@ public class ToDoList {
                         System.out.println("You have no tasks!");
                     }
                     else {
+                        
                         System.out.println("-----------------------------------");
                         System.out.println("Here are your tasks: ");
                         // START > CHECK > STEP
@@ -130,4 +148,5 @@ public class ToDoList {
                         System.out.println("-----------------------------------");
                     }
     }
+    
 }
