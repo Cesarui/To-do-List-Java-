@@ -45,7 +45,7 @@ public class ToDoList {
             while(!validOption){
                 option = scanner.nextInt();
                 scanner.nextLine();
-                if (option > 0 && option < 5) {
+                if (option > 0 && option < 6) {
                     validOption = true;
                 }
                 else{
