@@ -148,5 +148,6 @@ public class ToDoList {
                         System.out.println("-----------------------------------");
                     }
     }
-    // ADD A WAY TO SAVE TO A TXT FILE AND LOAD TASKS!!
+    // All finished, this was only a week project to study the fundamentals of Array Lists!
+    // If i had more time i would of added a save/load feature and maybe a GUI!
 }
